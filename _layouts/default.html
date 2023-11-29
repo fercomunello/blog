@@ -3,18 +3,23 @@
     <head>
         <meta charset="utf-8">
         <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
     </head>
     <body>
         <header>
+            {% include navigation.html %}
         </header>
         <main>
             {{ content }}
         </main>
         <footer>
             {% if site.github.is_project_page %}
-            <p>Follow me on github: <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+                <p>Follow me on Github:
+                    <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+                </p>
             {% endif %}
-            <p><small>Blog hosted on GitHub Pages &copy;.</small></p>
+            {{ date_to_string }}
+            <p>Blog hosted on GitHub Pages &copy; - {{ site.time | date: '%Y' }}.</p>
         </footer>
     </body>
 </html>
