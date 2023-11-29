@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            {{ content }}
+        </main>
+        <footer>
+            {% if site.github.is_project_page %}
+            <p>Follow me on github: <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+            {% endif %}
+            <p><small>Blog hosted on GitHub Pages &copy;.</small></p>
+        </footer>
+    </body>
+</html>

@@ -31,7 +31,6 @@ twitter_username: fercomunello
 github_username:  fercomunello
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 
