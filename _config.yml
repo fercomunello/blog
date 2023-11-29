@@ -28,6 +28,7 @@ domain: fercomunello.github.io
 url: https://fercomunello.github.io
 twitter_username: fercomunello
 github_username:  fercomunello
+baseurl: ""
 
 # Build settings
 plugins:
