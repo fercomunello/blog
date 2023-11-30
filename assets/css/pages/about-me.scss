@@ -1,32 +1,40 @@
 ---
 ---
+
 #bio-section {
     > header > h1 {
         font-size: calc(2.6 * var(--font-size));
     }
 }
+
 .typing-text {
     font-family: 'Consolas', monospace;
-    .typying-node {
-        @media (min-width: 784px) {
-            animation:
-                typing 2.8s steps(80, end),
-                blink-caret .75s step-end infinite;
+
+    @media (min-width: 784px) {
+        .typying-node {
+            animation: typing 2.8s steps(80, end),
+            blink-caret .75s step-end infinite;
             transition: 1s;
             overflow: hidden;
             border-right: .19em solid lightslategray;
             white-space: nowrap;
             display: inline-block;
 
-            &.-em17 {
-                @keyframes typing {
-                    from { width: 0 }
-                    to { width: 17em; }
+            @keyframes typing {
+                from {
+                    width: 0
+                }
+                to {
+                    width: 100%;
                 }
             }
             @keyframes blink-caret {
-                from, to { border-color: transparent }
-                50% { border-color: lightslategray; }
+                from, to {
+                    border-color: transparent
+                }
+                50% {
+                    border-color: lightslategray;
+                }
             }
         }
     }

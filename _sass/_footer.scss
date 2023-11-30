@@ -1,0 +1,45 @@
+.blog-footer {
+    background-color: #F5F5F5;
+
+    .footer-social-media {
+        padding: .8em 0;
+
+        > nav > ul {
+            display: flex;
+            flex-direction: row;
+            gap: .7em;
+            overflow: hidden;
+
+            > li {
+                color: #555;
+                text-align: center;
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+                i {
+                    color: #555;
+                    margin: .3em;
+                    cursor: pointer;
+                    transition: color 300ms ease, margin-top 300ms ease;
+                    transform: translateZ(0);
+                    font-size: 1.9em;
+                }
+            }
+
+            .bi-github:hover, .bi-code-slash:hover{
+                color: black;
+            }
+            .bi-twitter:hover, .bi-linkedin:hover{
+                color: #0177B5;
+            }
+            .bi-youtube:hover {
+                color: red;
+            }
+        }
+    }
+
+    .footer-copyright-text {
+        font-family: 'Consolas', monospace;
+    }
+}

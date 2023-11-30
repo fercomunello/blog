@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'header';
+@import 'footer';
 
 :root {
     --font-size: 1rem;
@@ -7,14 +8,23 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-size: var(--font-size);
     font-family: 'Arial', sans-serif;
     text-rendering: optimizeLegibility;
     line-height: 1.5;
+    min-height: 100vh;
     --webkit-font-smoothing: antialiased;
     --moz-osx-font-smoothing: grayscale;
+
+    background: #fafaff;
+
+    ::selection {
+        background: #98c0ec !important;
+    }
 
     a {
         color: #1072f3;
@@ -36,8 +46,15 @@ body {
     }
 }
 
-#content {
+.blog-content {
     margin-top: 16px;
+    min-height: 20vw;
+    flex: 1 0 auto;
+    display: flex;
+}
+
+.flex-item {
+    display: flex;
 }
 
 .dark-bg-text {

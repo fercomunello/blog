@@ -1,0 +1,50 @@
+<div class="container">
+    <section class="footer-social-media">
+        <nav role="navigation">
+            <ul>
+                <li>
+                    <a href="{{ site.github.owner_url }}/{{ site.repo_name }}" target="_blank">
+                        <i class="bi bi-code-slash"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ site.github.owner_url }}" target="_blank">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://youtube.com/@{{ site.youtube_username }}" target="_blank">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <div class="footer-social-media" style="display: none">
+        {% if site.github.is_project_page %}
+            <p>Follow me on Github:
+                <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+            </p>
+        {% endif %}
+        {{ date_to_string }}
+    </div>
+
+    <span class="footer-copyright-text">
+        &copy; Fernando Comunello - {{ site.time | date: '%B %d, %Y' }}
+    </span>
+</div>
