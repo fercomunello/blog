@@ -1,6 +1,8 @@
 @import 'reset';
 @import 'header';
 
+@import 'index';
+
 :root {
     --font-size: 1rem;
     --container-width: 85vw;
@@ -38,6 +40,13 @@ body {
 
 #content {
     margin-top: 16px;
+}
+
+.dark-bg-text {
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
 }
 
 button {

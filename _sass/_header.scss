@@ -1,0 +1,110 @@
+@mixin dark-header {
+    --header-background-color: black;
+    --header-link-color: white;
+    --header-link-hover: rgba(130, 131, 133, 0.5);
+    --header-dash: #f85e5e;
+    --header-box-shadow: rgba(0, 0, 0, 0.8);
+}
+
+#menu {
+    @include dark-header;
+    display: flex;
+    align-items: center;
+    --header-height: 74px;
+    min-height: var(--header-height);
+
+    background-color: var(--header-background-color);
+    box-shadow: 2px 2px 23px var(--header-box-shadow);
+
+    a {
+        color: var(--header-link-color);
+        user-select: none;
+        text-decoration: none;
+    }
+
+    > nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        > .blog-logo {
+            font-weight: bold;
+            font-size: 1.7rem;
+            transition: .3s;
+            position: relative;
+            margin-left: 38px;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                background: url('/assets/svg/java.svg') no-repeat;
+                width: 48px;
+                height: 48px;
+                left: -53px;
+                bottom: 0;
+            }
+
+            @media (min-width: 686px) {
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    border-bottom: 0.2rem solid var(--header-dash);
+                    width: 56px;
+                    border-radius: 5px;
+                    bottom: -3px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.24);
+                    transition: .3s;
+                }
+            }
+
+            @media (max-width: 685px) {
+                justify-content: space-between;
+
+                > span {
+                    display: none;
+                }
+                &:hover {
+                    transform: unset;
+                }
+                &::before {
+                    left: -39px;
+                    bottom: -6px;
+                }
+            }
+
+            @media (max-width: 443px) {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        > ul {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.15rem;
+            margin-left: 8px;
+
+            a {
+                background: #232323;
+                padding: 6px;
+                border-radius: 5px;
+                &.current, &:hover {
+                    background: #56738c;
+                }
+            }
+
+            @media (max-width: 379px) {
+                gap: 0;
+                font-size: 1rem;
+            }
+        }
+    }
+}
