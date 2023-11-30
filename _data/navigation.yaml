@@ -1,7 +1,7 @@
 - name: //
   link: /
-- name: About me
-  link: /about
+- name: Bio
+  link: /about-me
 - name: Projects
   link: /projects
 - name: Contact

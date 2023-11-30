@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{{ page.title }}</title>
+        <title>{{ page.title }} | @ferjava</title>
+
         <link rel="stylesheet" href="/assets/css/styles.css">
-        <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
+        {% if page.url == '/about-me' %}
+            <link rel="stylesheet" href="/assets/css/pages/about-me.css">
+        {% endif %}
     </head>
     <body>
         <header id="menu">

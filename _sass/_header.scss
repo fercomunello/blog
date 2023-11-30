@@ -1,23 +1,15 @@
-@mixin dark-header {
-    --header-background-color: black;
-    --header-link-color: white;
-    --header-link-hover: rgba(130, 131, 133, 0.5);
-    --header-dash: #f85e5e;
-    --header-box-shadow: rgba(0, 0, 0, 0.8);
-}
-
 #menu {
-    @include dark-header;
-    display: flex;
-    align-items: center;
     --header-height: 74px;
     min-height: var(--header-height);
 
-    background-color: var(--header-background-color);
-    box-shadow: 2px 2px 23px var(--header-box-shadow);
+    display: flex;
+    align-items: center;
+
+    box-shadow: 2px 2px 23px rgba(0, 0, 0, 0.8);
+    background-image: linear-gradient(black, #3a3a3a);
 
     a {
-        color: var(--header-link-color);
+        color: white;
         user-select: none;
         text-decoration: none;
     }
@@ -50,7 +42,7 @@
                     content: '';
                     display: block;
                     position: absolute;
-                    border-bottom: 0.2rem solid var(--header-dash);
+                    border-bottom: 0.2rem solid #f85e5e;
                     width: 56px;
                     border-radius: 5px;
                     bottom: -3px;
