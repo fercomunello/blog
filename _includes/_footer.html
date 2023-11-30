@@ -35,15 +35,6 @@
 
     </section>
 
-    <div class="footer-social-media" style="display: none">
-        {% if site.github.is_project_page %}
-            <p>Follow me on Github:
-                <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
-            </p>
-        {% endif %}
-        {{ date_to_string }}
-    </div>
-
     <span class="footer-copyright-text">
         &copy; Fernando Comunello - {{ site.time | date: '%B %d, %Y' }}
     </span>

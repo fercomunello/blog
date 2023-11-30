@@ -25,6 +25,12 @@
             transition: .3s;
             position: relative;
             margin-left: 38px;
+            animation: fadein .5s;
+
+            @keyframes fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
 
             &::before {
                 content: '';
