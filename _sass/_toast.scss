@@ -1,0 +1,29 @@
+.toast {
+    position: fixed;
+    bottom: 2em;
+    right: 1%;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, .7);
+    animation: fadein 0.4s;
+    border-radius: .4em;
+
+    &.-error {
+        color: black;
+        background-color: rgba(246, 59, 45, 0.7);
+    }
+    &.-success {
+        color: whitesmoke;
+        background-color: #31708d;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}

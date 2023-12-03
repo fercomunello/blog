@@ -1,0 +1,93 @@
+<h3 class="timeline-item-title" data-js-clip="big-challenges-phase" xmlns="http://www.w3.org/1999/html">
+    # GRANDES DESAFIOS TÉCNICOS
+</h3>
+<a href="#joining-open-source" class="timeline-go-to-next-item">
+    <i class="bi bi-caret-up-square-fill"></i>
+</a>
+<img src="/assets/img/agrotitan/agrotitan.png" style="width: 4%; float: right">
+
+<span class="timeline-item-date">Janeiro - Dezembro, 2021</span>
+<p>Nesta fase, assumi <strong>grandes responsabilidades técnicas</strong>, realizando
+    diversas melhorias de performance e auxiliando novos desenvolvedores da equipe.</p>
+
+<h4>Uma melhoria de grande impacto</h4>
+<p>Uma dessas melhorias foi no processamento e sincronização de dados para uso off-line do CRM,
+    rotina esta que movimentava um <strong>grande volume de dados</strong> extraídos do
+    <strong>Oracle Database</strong>.
+</p>
+
+<strong>Antes da melhoria:</strong>
+<img src="/assets/img/agrotitan/before-optimization.png">
+<p>Ao executar as etapas de sincronização que agregavam os dados, nota-se que estava ocorrendo o
+    que é conhecido como <i>"Stop the World GC"</i> no qual o Garbage Collector da JVM
+    <strong>alocava muita memória pausando as threads</strong>
+    da aplicação para conseguir desalocar memória. Encontrar uma solução para tal problema não costuma ser simples, fica
+    ainda mais complicado se
+    o monitoramento da aplicação não for realizado com frequência.
+</p>
+
+<strong>Depois da melhoria:</strong>
+<img src="/assets/img/agrotitan/after-optimization.png">
+
+<p>
+    Após as melhorias, nota-se que o GC passou a atuar da forma adequeada,
+    <strong>sem grandes picos</strong>
+    e com <strong>alocação de memória normalizada</strong>!
+    A melhoria foi realizada através da migração para uma estrutura que permitisse <strong>dividir as operações
+        de I/O em múltiplos lotes</strong>, empilhando e consumindo cerca de 50 registros por iteração,
+    isto é viável usando a tećnica
+    <a target="_blank"
+       href="https://www.oracle.com/technetwork/database/application-development/jdbc-memory-management-12c-1964666.pdf">
+        JDBC Fetch Size</a>
+    ao consumir os registros do cursor, esta técnica pode superar a performance
+    de leituras páginadas, pois o plano de execução é gerado apenas uma vez e não N vezes.
+</p>
+
+<p>Também atuei na <strong>linha de frente</strong> refatorando procedures
+    <a href="https://www.oracle.com/database/technologies/appdev/plsql.html" target="_blank">
+        PL/SQL</a>,
+    buscando sempre maximizar a performance, <strong>diminuir o consumo de recursos</strong> e minimizar os
+    problemas de <i>N+1</i> atráves da análise dos planos de execução e logs,
+    <strong>diminuindo o número de roundtrips</strong>
+    entre a aplicação e o RDBMS.
+
+    Por fim, o <strong>principal ganho</strong> foi no dia-a-dia dos usuários, que passavam não mais a esperar
+    vários minutos ou até mesmo meia hora para realizar a sincronização dos dados agregados,
+    mas sim <strong>apenas alguns segundos</strong> em alguns casos, diminuindo consideravelmente
+    a chance de falhas no processo.
+</p>
+
+<h4 style="cursor: auto">Meu primeiro artigo sobre Jakarta EE</h4>
+
+<p>Depois de muito aprofundamento no estudo de servidores de aplicação,
+    especialmente
+    <a href="https://www.redhat.com/pt-br/technologies/jboss-middleware/application-platform" target="_blank">JBoss</a>
+    e
+    <a href="https://www.wildfly.org" target="_blank">WildFly</a>,
+    publiquei o meu primeiro artigo sobre o assunto:
+    <a target="_blank"
+       href="https://medium.com/@fercomunello/primeiros-passos-com-o-servidor-de-aplicação-wildfly-jboss-e-jakarta-ee-c2e166719f15">
+        Primeiros passos com o servidor de aplicação WildFly/JBoss e Jakarta EE
+    </a>
+</p>
+
+<p>O entendimento da especificação
+    <a target="_blank" href="https://jakarta.ee">Jakarta EE</a>
+    — antes conhecida como Java EE —
+    foi <strong>essencial para a minha evolução</strong>,
+    visto que nem todos os desenvolvedores compreendem que <strong>implementação
+        é diferente de especificação</strong>,
+    por isso acabam, muitas das vezes, disputando com recursos que o servidor de aplicação já
+    gerencia. Ao compreender este pequeno conceito, a aplicação ficaria portável
+    entre diferentes servidores de aplicação, sendo o JBoss EAP e
+    Glassfish (adquirido por <a target="_blank" href="https://www.payara.fish/products/payara-server/">Payara</a>)
+    exemplos desses servidores, eliminando assim o
+    <strong>vendor lock-in</strong>.
+</p>
+
+<div style="display: flex; flex-direction: row; gap: 2em">
+    <img style="width: 12%;"
+         src="/assets/img/jakarta-ee/jboss.png">
+    <img style="width: 12%; "
+         src="/assets/img/jakarta-ee/glassfish.svg">
+</div>

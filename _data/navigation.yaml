@@ -1,8 +1,6 @@
 - name: //
   link: /
-- name: Bio
-  link: /about-me
-- name: Projects
-  link: /projects
-- name: Contact
-  link: /contact
+#- name: Bio 🌐
+#  link: /about-me
+- name: Bio 🇧🇷
+  link: /about-me-pt-br

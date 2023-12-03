@@ -1,41 +1,164 @@
 ---
 ---
 
-#bio-section {
-    > header > h1 {
-        font-size: calc(2.6 * var(--font-size));
-    }
-}
+.about-me {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    margin-top: 2.2em;
+    width: 100%;
 
-.typing-text {
-    font-family: 'Consolas', monospace;
+    .profile-info {
+        width: 24%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        .profile-avatar {
+            max-width: 300px;
+            transition: transform .2s;
+            display: block;
+            border: 10px solid black;
+            border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.06);
+            }
+        }
 
-    @media (min-width: 784px) {
-        .typying-node {
-            animation: typing 2.8s steps(80, end),
-            blink-caret .75s step-end infinite;
-            transition: 1s;
-            overflow: hidden;
-            border-right: .19em solid lightslategray;
-            white-space: nowrap;
-            display: inline-block;
-
-            @keyframes typing {
-                from {
-                    width: 0
-                }
-                to {
-                    width: 100%;
+        .certifications-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 100%;
+            .certifications {
+                .certification {
                 }
             }
-            @keyframes blink-caret {
-                from, to {
-                    border-color: transparent
-                }
-                50% {
-                    border-color: lightslategray;
+            .badges {
+                list-style: none;
+                margin-left: 0;
+                .badge {
+                    width: 50%;
+                    cursor: pointer;
+                    transition: .8s;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
                 }
             }
         }
+    }
+
+    .career-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        > header {
+            margin-left: 1em;
+            animation: fadein 3.1s;
+
+            @keyframes fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
+        }
+    }
+}
+
+.timeline {
+    width: 100%;
+    padding: 30px 20px;
+
+    .timeline-list {
+        list-style-type: none;
+        border-left: 2px solid #094a68;
+
+        .timeline-item {
+            padding: 20px 20px;
+            margin-left: 8px;
+            border-radius: 16px;
+
+            .timeline-item-content {
+                .timeline-item-title {
+                    color: white;
+                    width: fit-content;
+                    background-color: #094a68;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    font-size: 17px;
+                    padding: 1px 5px;
+                    font-family: 'Consolas', monospace;
+                    cursor: pointer;
+                    margin-bottom: 5px;
+                }
+                p {
+                    padding: 5px 0 15px 0;
+                }
+            }
+
+            .timeline-item-date {
+                display: inline-block;
+                border-radius: 25px;
+                padding: 2px 5px;
+                font-size: 0.8rem;
+                text-align: center;
+                font-weight: bold;
+                margin-top: 2px;
+            }
+
+            .timeline-go-to-next-item {
+                text-decoration: none;
+                color: black;
+                align-self: flex-end;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: #000000;
+                border-radius: 50%;
+                left: -11px;
+                top: 28px;
+                transition: .5s;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .9);
+                background-image: linear-gradient(black, #363636);
+                color: white;
+                transition: .5s;
+                transform: scale(1.05);
+
+                ::selection {
+                    color: black;
+                }
+
+                &::before {
+                    background-color: #72ff72;
+                    box-shadow: 0 0 2px 2px #5fff5f;
+                }
+
+                .timeline-go-to-next-item {
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .about-me {
+        flex-wrap: wrap;
+        .profile-info {
+            width: 100%;
+        }
+    }
+    .career-section {
+        > header {
+            margin-left: 1em;
+       }
     }
 }
