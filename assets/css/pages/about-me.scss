@@ -144,16 +144,23 @@
                 .timeline-go-to-next-item {
                     color: whitesmoke;
                 }
+
+                .quote-link {
+                    color: white;
+                }
             }
         }
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 660px) {
     .about-me {
         flex-wrap: wrap;
         .profile-info {
-            width: 100%;
+            width: 60%;
+            .certifications-section .badges .badge {
+                width: 35%;
+            }
         }
     }
     .career-section {

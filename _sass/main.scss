@@ -111,6 +111,14 @@ body {
     margin-left: 2em;
 }
 
+.quote-link {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
