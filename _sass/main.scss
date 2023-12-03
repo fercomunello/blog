@@ -63,7 +63,14 @@ body {
             --container-width: 95dvw;
         }
         width: var(--container-width);
-        margin: 0 1rem;
+        margin: 0 1em;
+    }
+
+    @media (max-width: 480px) {
+        :root {
+            --container-width: 100dvw;
+        }
+        margin: 0 .47em;
     }
 }
 
