@@ -7,12 +7,13 @@
 {% endif %}
 
 <!DOCTYPE html>
-<html lang="{{ html_lang }}">
+<html lang="{{ html_lang }}" translate="no">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{ site.description }}">
         <meta name="robots" content="index,follow">
+        <meta name="google" content="notranslate">
 
         <title>{{ page.title }}</title>
 
@@ -47,7 +48,8 @@
             </p>
         </noscript>
 
-        <main class="blog-content container" lang="{{ content_lang }}">
+        <main class="blog-content container"
+              lang="{{ content_lang }}" translate="no">
             <div class="d-flex-column container">
                 {{ content }}
             </div>
