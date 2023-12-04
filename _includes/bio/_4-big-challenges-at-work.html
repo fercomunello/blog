@@ -1,0 +1,102 @@
+<h3 class="timeline-item-title" data-js-clip="big-challenges-phase" xmlns="http://www.w3.org/1999/html">
+    # BIG CHALLENGES PHASE
+</h3>
+<a href="#joining-open-source" class="timeline-go-to-next-item">
+    <i class="bi bi-caret-up-square-fill"></i>
+</a>
+<img src="/assets/img/agrotitan/agrotitan.png"
+     title="Agrotitan da VIASOFT"
+     alt="Logomarca do software Agrotitan da VIASOFT"
+     style="width: 4%" class="timeline-item-logo">
+
+<span class="timeline-item-date">January - December, 2021</span>
+<p>At this stage, I assumed <strong>technical responsibilities</strong>, carrying out
+    several performance improvements and helping new developers on the team.</p>
+
+<h4>A major impact improvement</h4>
+<p>One of these improvements was in the processing and synchronization of data
+    for offline usage of the CRM,
+    This routine moved a <strong>large volume of data</strong> extracted from the
+    <strong>Oracle Database</strong>.
+</p>
+
+<strong>Before improvements:</strong>
+<img src="/assets/img/agrotitan/before-optimization.png"
+     title="The GlassFish JVM before improvements"
+     alt="GlassFish JVM pid graph before applying improvements">
+<p>When executing the synchronization steps that aggregated the data, it was noticed a
+    <i>"Stop the World GC"</i> event in which the JVM Garbage Collector
+    <strong>allocated a lot of memory by pausing threads</strong>
+    of the application to be able to deallocate later.
+    Finding a solution to such a problem is not usually simple, it is
+    even more complicated if application monitoring is not performed frequently.
+</p>
+
+<strong>After improvements:</strong>
+<img src="/assets/img/agrotitan/after-optimization.png"
+     title="The GlassFish JVM after applying improvements"
+     alt="GlassFish JVM pid graph after applying improvements">
+<p>
+    After the improvements, it can be seen that the GC started to act properly,
+    <strong>no big peaks</strong>
+    and with <strong>normalized memory allocation</strong>!
+    The improvement was made through the migration to a structure that allowed<strong>to divide operations
+        of I/O in multiple batches</strong>, stacking and consuming about 50 records per iteration,
+    This is feasible using the
+    <a target="_blank"
+       href="https://www.oracle.com/technetwork/database/application-development/jdbc-memory-management-12c-1964666.pdf">
+        JDBC Fetch Size</a> technique by consuming a database cursor, sometimes this approach can outperform
+    of paged readings, as the execution plan is generated only once and not N times.
+</p>
+
+<p>I also worked on the <strong>front line</strong> refactoring
+    <a href="https://www.oracle.com/database/technologies/appdev/plsql.html" target="_blank">
+        PL/SQL procedures</a>,
+    always seeking to maximize performance, <strong>reduce resource consumption</strong> and minimize
+    <i>N+1</i> problems by analyzing execution plans and logs,
+    <strong>decreasing the number of roundtrips</strong>
+    between the application and the RDBMS.
+
+    Finally, the <strong>main gain</strong> was in the day-to-day lives of users, who no longer had to wait
+    several minutes or even half an hour to synchronize the aggregated data,
+    but <strong>just a few seconds</strong> in some cases, considerably decreasing
+    the chances of failures in the process.
+</p>
+
+<h4 style="cursor: auto">My first article about Jakarta EE</h4>
+
+<p>After much in-depth study of application servers,
+    especially
+    <a href="https://www.redhat.com/pt-br/technologies/jboss-middleware/application-platform" target="_blank">JBoss</a>
+    and
+    <a href="https://www.wildfly.org" target="_blank">WildFly</a>,
+    I published my first article on the subject:
+    <a target="_blank"
+       href="https://medium.com/@fercomunello/ Primeiros-passos-com-o-servidor-de-aplicação-wildfly-jboss-e-jakarta-ee-c2e166719f15">
+        Getting Started with WildFly/JBoss Application Server and Jakarta EE
+    </a>
+</p>
+
+<p>Understanding the specification
+    <a target="_blank" href="https://jakarta.ee">Jakarta EE</a>
+    — formerly known as Java EE —
+    it was <strong>essential for my evolution</strong>,
+    since not all developers understand that <strong>implementation
+        is a different concept than the specification</strong>,
+    That's why they often end up competing with resources that the application server already has.
+    By understanding this small concept, the application would be portable
+    between different application servers, with JBoss EAP and
+    Glassfish (acquired by
+    <a target="_blank" href="https://www.payara.fish/products/payara-server/">Payara</a> company)
+    examples of these servers, thus eliminating the
+    <strong>vendor lock-in</strong>.
+</p>
+
+<div style="display: flex; flex-direction: row; gap: 2em">
+    <img style="width: 12%;" src="/assets/img/jakarta-ee/jboss.png"
+         title="JBOSS, the Red Hat's application server"
+         alt="Red Hat JBoss application server logo">
+    <img style="width: 12%; " src="/assets/img/jakarta-ee/glassfish.svg"
+         title="GlassFish, the Oracle's application server"
+         alt="Oracle GlassFish application server logo">
+</div>

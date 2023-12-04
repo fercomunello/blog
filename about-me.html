@@ -3,3 +3,91 @@ title: Fer's IT Blog - About me
 permalink: /about-me
 layout: default
 ---
+{% include bio/_svgs.html %}
+<div class="typing-text">
+    <h1 class="typying-node" lang="en">
+        Hello, my name is  <span class="dark-bg-text">Fernando Comunello</span>.
+    </h1>
+</div>
+<div class="about-me">
+    <aside class="profile-info">
+        <img class="profile-avatar" src="/assets/img/profile.jpeg"
+             title="Eu vestindo a camiseta que a Red Hat costuma entregar para novos contribuidores"
+             alt="Eu com a camiseta da Red Hat: I Made Quarkus 3.0">
+        <p>
+            <strong>Java developer</strong> for six years, four professionals.
+            At <strong>21 years old</strong>, I'm specializing more and more
+            To be able to design robust, scalable and viable systems by sharing my knowledge.
+        </p>
+        <section class="certifications-section">
+            <header>
+                <h2>Certifications</h2>
+            </header>
+            <ul class="certifications">
+                <li style="text-decoration: underline; cursor: pointer">
+                    <a target="_blank" style="color: black"
+                       href="/assets/img/certifications/oracle-associate.png">
+                        Oracle Cloud Infrastructure Associate
+                    </a>
+                </li>
+                <li style="text-decoration: underline; cursor: pointer">
+                    <a target="_blank" style="color: black"
+                       href="/assets/img/certifications/oracle-database-19c-marathon-dbaocm.png">
+                        Workshop Oracle 19c DBAOCM
+                    </a>
+                </li>
+            </ul>
+            <h3>Badges</h3>
+            <ul class="badges">
+                <li>
+                    <a target="_blank"
+                       href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DAFA897E7F7581DF6FC860A4CBC2F615E2F37F9761A5EA41593972338377B16A">
+                        <img class="badge" src="/assets/img/certifications/oci-associate-badge.png"
+                             alt="Oracle Cloud Infrastructure Foundations Associate (2021) certification badge"
+                             title="OCI Infrastructure Foundations Associate (2021) certification badge">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <section class="career-section">
+        <header>
+            <h2 lang="en">
+                And here's my <span class="dark-bg-text">IT Timeline</span>:
+            </h2>
+            <a style="text-decoration: underline"
+               href="#first-step-into-it">follow from the beginning</a>
+        </header>
+        <div class="timeline"
+             data-js-clip-content
+             data-js-clip-toast="Sharing URL sent to clipboard!">
+            <ul class="timeline-list">
+                <li id="joining-open-source" class="timeline-item">
+                    <div class="timeline-item-content">
+                        {% include bio/_5-joining-open-source.html %}
+                    </div>
+                </li>
+                <li id="big-challenges-phase" class="timeline-item">
+                    <div class="timeline-item-content">
+                        {% include bio/_4-big-challenges-at-work.html %}
+                    </div>
+                </li>
+                <li id="performed-at-work" class="timeline-item">
+                    <div class="timeline-item-content">
+                        {% include bio/_3-performed-at-work.html %}
+                    </div>
+                </li>
+                <li id="first-job" class="timeline-item">
+                    <div class="timeline-item-content">
+                        {% include bio/_2-first-job.html %}
+                    </div>
+                </li>
+                <li id="first-step-into-it" class="timeline-item">
+                    <div class="timeline-item-content">
+                        {% include bio/_1-first-step-into-it.html %}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

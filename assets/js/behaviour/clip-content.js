@@ -11,10 +11,11 @@
                                 `${window.location.origin}${window.location.pathname}#${tag}`
                             copyContent(contentUrl)
                                 .then(()=> {
-                                    let text = 'Sharing URL copied to clipboard!';
+                                    let text = 'Sharing URL sent to clipboard!';
                                     if (parent.dataset?.jsClipToast) {
                                         text = parent.dataset?.jsClipToast;
                                     }
+                                    window.location.replace(contentUrl);
                                     spawnToast(text, true);
                                 })
                                 .catch(() => {

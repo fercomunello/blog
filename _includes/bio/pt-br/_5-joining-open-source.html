@@ -1,0 +1,87 @@
+<h3 class="timeline-item-title" data-js-clip="joining-open-source">
+    # CONTRIBUINDO COM OPEN-SOURCE
+</h3>
+
+<svg style="float: right" width="100" height="50"
+     class="timeline-item-logo red-hat-logo-color">
+    <use xlink:href="#redhat"/>
+</svg>
+
+<span class="timeline-item-date">2022 - atualmente</span>
+
+Ao me especializar em <strong>Jakarta EE</strong> e <strong>MicroProfile</strong>,
+decidi investir meu tempo no <a target="_blank" href="https://www.quarkus.io">Quarkus</a>
+— framework <i>supersônico e subatômico</i> da <strong>Red Hat</strong> otimizado para
+a JVM, e também
+para <a target="_blank" href="https://www.graalvm.org">GraalVM</a>, com suporte
+a compilação nativa.
+
+
+Foi então que realizei a
+<strong class="green-text-highlight">
+    <a class="thumbnail-link" target="_blank"
+       href="https://github.com/quarkusio/quarkus/pull/27372/commits/00aa3b1b08a146e31def8c4cdbb72847934722f4">
+        minha primeira contribuição
+        <div class="thumbnail-img-wrapper" style="width: 53%">
+            <img class="thumbnail-img"
+                 title="Merged Quarkus PR #27372: Improve live reload experience of external artifacts on dev mode"
+                 alt="Merged Quarkus PR #27372: Improve live reload experience of external artifacts on dev mode"
+                 src="/assets/img/contributions/pull-request-27372.png"
+                 lang="en">
+            <br/>Pull-request #27372
+        </div>
+    </a>
+</strong> para o projeto,
+na qual foram adicionadas <strong>1.348 linhas de código</strong>
+no módulo <strong>Core do Quarkus</strong>.
+
+<br><br>
+Realizei novas implementações de file managers que estendem a
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/StandardJavaFileManager.html"
+   target="_blank">implementação padrão do JDK</a> e se integram com a
+<a target="_blank" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/JavaCompiler.html">
+    interface do compilador nativo
+</a>
+da linguagem, esta interface é importante para o dev mode do Quarkus
+(comento sobre o dev mode <a target="_blank" href="https://youtu.be/3eZeS31dnCg?t=250" class="thumbnail-link">
+neste vídeo<div class="thumbnail-img-wrapper" style="width: 35%">
+    <img class="thumbnail-img"
+         title="Youtube: Aprenda JDBC usando Quarkus e Jakarta EE!"
+         alt="Youtube Video: Aprenda JDBC e JTA usando Quarkus e Jakarta EE!"
+         src="https://img.youtube.com/vi/3eZeS31dnCg/maxresdefault.jpg">
+    <br/>Vídeo do meu canal do YouTube
+</div></a>) — sendo esta uma das features onde o framework se destaca. O objetivo
+principal desta PR foi separar o classpath estático do classpath externo e de dependências,
+esta abordagem de class loading é mais eficiente do que
+inicializar um novo file manager para cada tarefa de compilação, pois apenas
+a parte recarregável é redefinida separadamente das demais, mantendo assim o cache dos classpaths
+e re-utilizando os objetos, <strong>reduzindo assim o overhead entre as re-compilações</strong>.
+
+<br><br>
+<strong>Como resultado</strong>, empresas que já utilizavam o ou
+que pretendem utilizar o framework em produção, são capazes de
+integrar projetos externos que contêm regras de negócio juntamente com a API e/ou aplicação web
+desenvolvida com Quarkus, atuando como um <strong>shared kernel</strong> que auxilia na redução
+da duplicidade de código entre as camadas de negócio, o suporte desta integração também funciona com
+<strong>outras linguagens interoperáveis com a JVM</strong> como
+<a target="_blank" href="https://kotlinlang.org">Kotlin</a>,
+<a target="_blank" href="https://www.jetbrains.com/kotlin-multiplatform">Kotlin Multiplatform</a> e
+<a target="_blank" href="https://www.scala-lang.org">Scala</a>, tudo isso sem precisar trocar
+de contexto ou reiniciar o modo de desenvolvedor a cada mudança no projeto ou lib externa,
+mantendo um loop de feedback automatizado e <strong>praticamente instântaneo</strong> entre o momento da
+mudança do código e a execução.
+<br><br>
+<p>"<a href="https://quarkus.io/blog/adoptium-customer-story/#enter-quarkus"
+       class="quote-link" target="_blank"><i>O ciclo de feedback rápido
+            da codificação ao vivo foi muito útil no desenvolvimento com o Quarkus. Embora a
+            inicialização rápida tenha sido boa, não foi crítica, já que nossos aplicativos são de longa duração, mas
+            durante o desenvolvimento, à medida que ajustamos nossas APIs, poder testar novamente imediatamente nos
+            economizou muito tempo de desenvolvimento.</i></a>"<br>
+    <strong style="font-size: 85%">
+        - Lead Developer do comitê de direção técnica da Adoptium.
+    </strong>
+</p>
+
+<svg style="width: 40%; display: block">
+    <use xlink:href="#quarkus"/>
+</svg>

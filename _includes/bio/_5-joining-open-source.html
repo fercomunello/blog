@@ -1,5 +1,5 @@
 <h3 class="timeline-item-title" data-js-clip="joining-open-source">
-    # CONTRIBUINDO COM OPEN-SOURCE
+    # AN OPEN-SOURCE CONTRIBUTION
 </h3>
 
 <svg style="float: right" width="100" height="50"
@@ -7,21 +7,19 @@
     <use xlink:href="#redhat"/>
 </svg>
 
-<span class="timeline-item-date">2022 - atualmente</span>
+<span class="timeline-item-date">2022 - now</span>
 
-Ao me especializar em <strong>Jakarta EE</strong> e <strong>MicroProfile</strong>,
-decidi investir meu tempo no <a target="_blank" href="https://www.quarkus.io">Quarkus</a>
-— framework <i>supersônico e subatômico</i> da <strong>Red Hat</strong> otimizado para
-a JVM, e também
-para <a target="_blank" href="https://www.graalvm.org">GraalVM</a>, com suporte
-a compilação nativa.
+By specializing in <strong>Jakarta EE</strong> and <strong>MicroProfile</strong>,
+I decided to invest my time in <a target="_blank" href="https://www.quarkus.io">Quarkus</a>
+— a <i>supersonic and subatomic</i> framework of <strong>Red Hat</strong>, very well
+optimized for the JVM, and also for <a target="_blank" href="https://www.graalvm.org">GraalVM</a>,
+with the native compilation thing.
 
-
-Foi então que realizei a
+It was then that I made
 <strong class="green-text-highlight">
     <a class="thumbnail-link" target="_blank"
        href="https://github.com/quarkusio/quarkus/pull/27372/commits/00aa3b1b08a146e31def8c4cdbb72847934722f4">
-        minha primeira contribuição
+        my first contribution
         <div class="thumbnail-img-wrapper" style="width: 53%">
             <img class="thumbnail-img"
                  title="Merged Quarkus PR #27372: Improve live reload experience of external artifacts on dev mode"
@@ -31,56 +29,52 @@ Foi então que realizei a
             <br/>Pull-request #27372
         </div>
     </a>
-</strong> para o projeto,
-na qual foram adicionadas <strong>1.348 linhas de código</strong>
-no módulo <strong>Core do Quarkus</strong>.
+</strong> to the Quarkus project,
+in which <strong>1.348 lines of code</strong> were added
+on the <strong>core module</strong>.
 
 <br><br>
-Realizei novas implementações de file managers que estendem a
+I shipped new file manager implementations that extend the
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/StandardJavaFileManager.html"
-   target="_blank">implementação padrão do JDK</a> e se integram com a
+   target="_blank">default JDK implementations</a> and integrate with the
 <a target="_blank" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/JavaCompiler.html">
-    interface do compilador nativo
-</a>
-da linguagem, esta interface é importante para o dev mode do Quarkus
-(comento sobre o dev mode <a target="_blank" href="https://youtu.be/3eZeS31dnCg?t=250" class="thumbnail-link">
-neste vídeo<div class="thumbnail-img-wrapper" style="width: 35%">
-    <img class="thumbnail-img"
-         title="Youtube: Aprenda JDBC usando Quarkus e Jakarta EE!"
-         alt="Youtube Video: Aprenda JDBC e JTA usando Quarkus e Jakarta EE!"
-         src="https://img.youtube.com/vi/3eZeS31dnCg/maxresdefault.jpg">
-    <br/>Vídeo do meu canal do YouTube
-</div></a>) visto que um dos requisitos é
-recompilar as classes alteradas pelo desenvolvedor dinâmicamente sem reiniciar
-o processo — sendo esta uma das features onde o framework se destaca. O objetivo
-principal desta PR foi separar o classpath estático do classpath externo e de dependências,
-esta abordagem de class loading é mais eficiente do que
-inicializar um novo file manager para cada tarefa de compilação, pois apenas
-a parte recarregável é redefinida separadamente das demais, mantendo assim o cache dos classpaths
-e re-utilizando os objetos, <strong>reduzindo assim o overhead entre as re-compilações</strong>.
+    native compiler interface
+</a> of JDK, this interface is important for Quarkus dev mode
+(comment on dev mode <a target="_blank" href="https://youtu.be/3eZeS31dnCg?t=250" class="thumbnail-link">
+    in this video<div class="thumbnail-img-wrapper" style="width: 35%">
+        <img class="thumbnail-img"
+             title="Youtube: Learn JDBC using Quarkus and Jakarta EE!"
+             alt="Youtube Video: Learn JDBC and JTA using Quarkus and Jakarta EE!"
+             src="https://img.youtube.com/vi/3eZeS31dnCg/maxresdefault.jpg">
+        <br/>Video from my YouTube channel
+    </div></a>) — this is one of the features where the framework shines.
+The main purpose of this PR was to separate the static classpath from the external classpath
+and it's dependencies, this class loading approach is more efficient than
+initializing a new file manager for each compilation task, as only
+the reloadable part is reset separately from the others, thus maintaining the classpaths cache
+and re-using the objects, which <strong>reduces the overhead between re-compilations</strong>.
 
 <br><br>
-<strong>Como resultado</strong>, empresas que já utilizavam o ou
-que pretendem utilizar o framework em produção, são capazes de
-integrar projetos externos que contêm regras de negócio juntamente com a API e/ou aplicação web
-desenvolvida com Quarkus, atuando como um <strong>shared kernel</strong> que auxilia na redução
-da duplicidade de código entre as camadas de negócio, o suporte desta integração também funciona com
-<strong>outras linguagens interoperáveis com a JVM</strong> como
+<strong>As a result</strong>, companies that already used or
+who intend to use the framework in production, are able to
+integrate external projects that contain business rules together with the API and/or web application
+developed with Quarkus, acting as a <strong>shared kernel</strong> that helps reduce
+of code duplication between business layers, this integration support also works with
+<strong>other languages interoperable with the JVM</strong> such as
 <a target="_blank" href="https://kotlinlang.org">Kotlin</a>,
-<a target="_blank" href="https://www.jetbrains.com/kotlin-multiplatform">Kotlin Multiplatform</a> e
-<a target="_blank" href="https://www.scala-lang.org">Scala</a>, tudo isso sem precisar trocar
-de contexto ou reiniciar o modo de desenvolvedor a cada mudança no projeto ou lib externa,
-mantendo um loop de feedback automatizado e <strong>praticamente instântaneo</strong> entre o momento da
-mudança do código e a execução.
-
+<a target="_blank" href="https://www.jetbrains.com/kotlin-multiplatform">Kotlin Multiplatform</a> and
+<a target="_blank" href="https://www.scala-lang.org">Scala</a>, all without having to change
+context or restart developer mode with each change to the project or external lib,
+maintaining an automated and <strong>practically instantaneous</strong> feedback loop between the moment of
+code change and execution.
+<br><br>
 <p>"<a href="https://quarkus.io/blog/adoptium-customer-story/#enter-quarkus"
-       class="quote-link" target="_blank"><i>O ciclo de feedback rápido
-            da codificação ao vivo foi muito útil no desenvolvimento com o Quarkus. Embora a
-            inicialização rápida tenha sido boa, não foi crítica, já que nossos aplicativos são de longa duração, mas
-            durante o desenvolvimento, à medida que ajustamos nossas APIs, poder testar novamente imediatamente nos
-            economizou muito tempo de desenvolvimento.</i></a>"
+       class="quote-link" target="_blank"><i>The live coding fast feedback loop was very useful when developing
+            with Quarkus. Although fast startup was nice, it wasn’t critical since our apps are long-running,
+            but during development, as we tweaked our APIs, being able to immediately re-test saved us a
+            ton of development time.</i></a>"<br>
     <strong style="font-size: 85%">
-        - Lead Developer do comitê de direção técnica da Adoptium.
+        - Lead Developer at Adoptium Technical Steering Committee
     </strong>
 </p>
 
