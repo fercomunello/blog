@@ -1,13 +1,17 @@
 
 
-<nav class="container" role="menubar">
+<nav class="container" role="menubar"
+     aria-label="Main menu"
+     aria-orientation="horizontal">
 
     {% if page.language and page.language == 'pt-BR' %}
-        <a class="blog-logo" href="/br">
+        <a class="blog-logo" href="/br"
+           aria-label="Ícone do Blog (Logo do Java)">
             <span>blog</span>
         </a>
     {% else %}
-        <a class="blog-logo" href="/">
+        <a class="blog-logo" href="/"
+           aria-label="Blog's icon (Java trademark)">
             <span>blog</span>
         </a>
     {% endif %}

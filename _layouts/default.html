@@ -57,8 +57,19 @@
             {% include _footer.html %}
         </footer>
 
-        <a class="scroll-to-top" href="#" data-js-scroll-to-top>
-            <i class="bi bi-arrow-up-square-fill"></i>
-        </a>
+        {% if page.language == 'pt-BR' %}
+            <a class="scroll-to-top" href="#" data-js-scroll-to-top
+               title="Voltar para o topo"
+               aria-label="Voltar para o topo da página">
+                <i class="bi bi-arrow-up-square-fill"></i>
+            </a>
+        {% else %}
+            <a class="scroll-to-top" href="#" data-js-scroll-to-top
+               title="Scroll to the top"
+               aria-label="Scroll to the top of the page">
+                <i class="bi bi-arrow-up-square-fill"></i>
+            </a>
+        {% endif %}
+
     </body>
 </html>
