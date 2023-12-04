@@ -46,7 +46,7 @@
                     border-bottom: 0.2rem solid #f85e5e;
                     width: 56px;
                     border-radius: 5px;
-                    bottom: -3px;
+                    bottom: -1px;
                 }
 
                 &:hover {
@@ -86,13 +86,24 @@
             margin-left: 8px;
             list-style: none;
 
-            a {
+            .nav-anchor {
                 background: #232323;
                 padding: 6px;
                 border-radius: 5px;
                 text-decoration: none;
                 &.current, &:hover {
                     background: #56738c;
+                }
+            }
+
+            .locale-switcher {
+                text-decoration: none;
+                transition: .3s;
+                &:hover {
+                    transition: .3s;
+                    background-color: #485d70;
+                    padding: 6px;
+                    border-radius: 5px;
                 }
             }
         }

@@ -1,11 +1,10 @@
-{% capture language %}
-    {% assign html_lang = 'en' %}
-    {% if page.language %}
-        {% assign content_lang = page.language %}
-    {% else %}
-        {% assign content_lang = 'en' %}
-    {% endif %}
-{% endcapture %}
+{% assign html_lang = 'en' %}
+{% assign content_lang = 'en' %}
+
+{% if page.language %}
+    {% assign content_lang = page.language %}
+    {% assign html_lang = page.language %}
+{% endif %}
 
 <!DOCTYPE html>
 <html lang="{{ html_lang }}">
@@ -21,7 +20,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="/assets/css/styles.css">
 
-        {% if page.url == '/about-me' or page.url == '/about-me-pt-br' %}
+        {% if page.url contains '/about-me' %}
             <link rel="stylesheet" href="/assets/css/pages/about-me.css">
         {% endif %}
 
@@ -36,8 +35,15 @@
         <noscript class="container">
             <p class="warning">
                 <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
-                Ops, JavaScript is disabled in your browser.
-                For the optimal experience, it is recommend enabling it.
+                {% if page.language == 'pt-BR' %}
+                    Ops, o JavaScript está desabilitado em seu navegador.
+                    Este site funciona mesmo sem scripts, mas se deseja obter uma melhor
+                    experiência, é recomendado manter habilitado.
+                {% else %}
+                    Ops, JavaScript is disabled in your browser.
+                    This website will continue to work without scripts, but for the optimal
+                    experience, it is recommended enabling it.
+                {% endif %}
             </p>
         </noscript>
 

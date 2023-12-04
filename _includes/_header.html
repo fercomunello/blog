@@ -1,12 +1,58 @@
+
+
 <nav class="container" role="menubar">
-    <a class="blog-logo" href="/"><span>blog</span></a>
+
+    {% if page.language and page.language == 'pt-BR' %}
+        <a class="blog-logo" href="/br">
+            <span>blog</span>
+        </a>
+    {% else %}
+        <a class="blog-logo" href="/">
+            <span>blog</span>
+        </a>
+    {% endif %}
+
     <ul>
         {% for item in site.data.navigation %}
-            <li>
-                <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-                    {{ item.name }}
-                </a>
-            </li>
+            {% if page.language and page.language == 'pt-BR' and item.link contains '/br' %}
+                <li>
+                    <a class="nav-anchor{% if page.url == item.link %} current{% endif %}"
+                       href="{{ item.link }}">{{ item.name }}
+                    </a>
+                </li>
+            {% elsif page.language or item.link contains '/br' == false %}
+            {% else %}
+                <li>
+                    <a class="nav-anchor{% if page.url == item.link %} current{% endif %}"
+                       href="{{ item.link }}">
+                        {{ item.name }}
+                    </a>
+                </li>
+            {% endif %}
         {% endfor %}
+
+        <li style="font-size: 1.5em; margin-left: .65em">
+            {% if page.language and page.language == 'pt-BR' %}
+                {% if page.permalink != '/br' %}
+                    <a href="{{ page.permalink | remove_first: '/br' }}" class="locale-switcher"
+                       title="English">🌐</a>
+                {% else %}
+                    <a href="{{ page.permalink | replace_first: '/br', '/' }}" class="locale-switcher"
+                       title="English">🌐</a>
+                {% endif %}
+            {% else %}
+                <a href="{{ page.permalink }}" class="locale-switcher"
+                   title="English">🌐</a>
+            {% endif %}
+        </li>
+        <li style="font-size: 1.5em">
+            {% if page.language and page.language == 'pt-BR' %}
+                <a href="{{ page.permalink }}" class="locale-switcher"
+                   title="Brazilian Portuguese">🇧🇷</a>
+            {% else %}
+                <a href="/br{{ page.permalink }}" class="locale-switcher"
+                   title="Brazilian Portuguese">🇧🇷</a>
+            {% endif %}
+        </li>
     </ul>
 </nav>
