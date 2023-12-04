@@ -13,16 +13,13 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
+
         .profile-avatar {
             max-width: 300px;
             transition: transform .2s;
             display: block;
             border: 10px solid black;
             border-radius: 5px;
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.06);
-            }
         }
 
         .certifications-section {
@@ -30,10 +27,12 @@
             flex-direction: column;
             gap: 1em;
             width: 100%;
+
             .certifications {
                 .certification {
                 }
             }
+
             .badges {
                 list-style: none;
                 margin-left: 0;
@@ -68,14 +67,14 @@
 
 .timeline {
     width: 100%;
-    padding: 30px 20px;
+    padding: 1.875em 1.25em;
 
     .timeline-list {
         list-style-type: none;
         border-left: 2px solid #094a68;
 
         .timeline-item {
-            padding: 20px 20px;
+            padding: 1.25em 1.25em;
             margin-left: 8px;
             border-radius: 16px;
 
@@ -91,6 +90,9 @@
                     font-family: 'Consolas', monospace;
                     cursor: pointer;
                     margin-bottom: 5px;
+                }
+                .timeline-item-logo {
+                    float: right;
                 }
                 p {
                     padding: 5px 0 15px 0;
@@ -120,14 +122,13 @@
                 height: 12px;
                 background-color: #000000;
                 border-radius: 50%;
-                left: -11px;
+                left: -10px;
                 top: 28px;
                 transition: .5s;
             }
 
             &:hover {
                 background-color: rgba(0, 0, 0, .9);
-                background-image: linear-gradient(black, #363636);
                 color: white;
                 transition: .5s;
                 transform: scale(1.05);
@@ -137,8 +138,7 @@
                 }
 
                 &::before {
-                    background-color: #72ff72;
-                    box-shadow: 0 0 2px 2px #5fff5f;
+                    background-color: #094a68;
                 }
 
                 .timeline-go-to-next-item {
@@ -167,5 +167,8 @@
         > header {
             margin-left: 1em;
        }
+    }
+    .timeline {
+        padding: 1.875em 0;
     }
 }
