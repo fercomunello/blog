@@ -18,8 +18,14 @@
             <meta name="description" content="{{ page.description }}">
             <meta name="og:description" content="{{ page.description }}">
         {% else %}
-            <meta name="description" content="{{ site.description }}">
-            <meta name="og:description" content="{{ site.description }}">
+            {% if page.language == 'pt-BR' %}
+                <meta name="description" content="{{ site.description_br }}">
+                <meta name="og:description" content="{{ site.description_br }}">
+            {% else %}
+                <meta name="description" content="{{ site.description }}">
+                <meta name="og:description" content="{{ site.description }}">
+            {% endif %}
+
         {% endif %}
         <meta name="author" content="Fernando Comunello"/>
 
@@ -28,7 +34,7 @@
 
         <meta property="og:title" content="{{ site.title }}: {{ page.title }}"/>
         <meta property="og:site_name" lang="en" content="{{ site.title }}"/>
-        <meta property="og:image" content="/assets/img/banner.png"/>
+        <meta property="og:image" content="/assets/img/banner.png" itemprop="image"/>
         <meta property="og:image:alt" lang="en" content="@ferjava youtube channel banner"/>
         <meta property="og:determiner" content="the"/>
         <meta property="og:type" content="blog"/>
