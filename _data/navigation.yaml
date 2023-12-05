@@ -7,3 +7,8 @@
   link: /about-me
 - name: Bio
   link: /br/about-me
+
+- name: Contact
+  link: /contact
+- name: Contato
+  link: /br/contact
