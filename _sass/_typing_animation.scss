@@ -11,7 +11,7 @@
     @media (min-width: 1024px) {
         .typying-node {
             font-size: calc(2.0 * var(--font-size));
-            animation: typing 2.8s steps(80, end),
+            animation: typing 2.2s steps(80, end),
                        blink-caret .75s step-end infinite;
             transition: 1s;
             overflow: hidden;
